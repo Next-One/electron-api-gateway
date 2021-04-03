@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>render1</title>
+</head>
+<body>
+<div>
+  <div>
+    另一个进程的加减实现
+  </div>
+  <div>
+    <button id="add">+</button>
+    <input type="number" id="num" value="1"/>
+    <button id="sub">-</button>
+  </div>
+  <div>
+    另一个进程的数据设置
+  </div>
+  <div>
+    <input type="number" id="num2" value="100"/>
+    <button id="set">设置</button>
+  </div>
+  <div>
+    调用主进程接口
+  </div>
+  <div>
+    <input type="number" id="num3" value="100"/>
+    <button id="double">翻倍</button>
+  </div>
+
+  <div>
+    调用render2进程接口
+  </div>
+  <div>
+    <input type="number" id="num4" value="100"/>
+    <button id="half">一半</button>
+  </div>
+
+  <div>
+    调用render2进程的1.5s异步接口
+  </div>
+  <div>
+    <input type="number" id="num5" value="100"/>
+    <button id="three">三倍</button>
+  </div>
+
+  <div>
+    调用主进程的1s异步接口
+  </div>
+  <div>
+    <input type="number" id="num6" value="100"/>
+    <button id="four">四倍</button>
+  </div>
+</div>
+
+<script src="./index.js"></script>
+</body>
+</html>

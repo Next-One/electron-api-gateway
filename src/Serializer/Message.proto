@@ -1,0 +1,75 @@
+syntax = "proto3";
+package API;
+
+message LoginMsg {
+  string    msg_type           = 1;    // 消息类型
+  string    source_id          = 2;    // 发送端id
+  string    source_module      = 3;    // 发送端模块名
+  string    timestamp          = 4;    // 时间戳
+  string    id                 = 5;    // 消息id唯一标识
+  string    user_name          = 6;    // 用户名
+  string    password           = 7;    // 密码
+  int32     type               = 8;    // 登录为1,注销为0
+}
+
+message HeartbeatMsg {
+  string    msg_type           = 1;    // 消息类型
+  string    source_id          = 2;    // 发送端id
+  string    source_module      = 3;    // 发送端模块名
+  string    timestamp          = 4;    // 时间戳
+  string    id                 = 5;    // 消息id唯一标识
+}
+
+message RegisterMsg {
+  string    msg_type           = 1;    // 消息类型
+  string    source_id          = 2;    // 发送端id
+  string    source_module      = 3;    // 发送端模块名
+  string    timestamp          = 4;    // 时间戳
+  string    id                 = 5;    // 消息id唯一标识
+  string    api                = 6;    // 注册/卸载的api名称
+  int32     type               = 7;    // 注册为1,卸载为0
+}
+
+message RequestMsg {
+  string    msg_type           = 1;    // 消息类型
+  string    source_id          = 2;    // 发送端id
+  string    source_module      = 3;    // 发送端模块名
+  string    timestamp          = 4;    // 时间戳
+  string    id                 = 5;    // 消息id唯一标识
+  string    api                = 6;    // 调用的api名称
+  string    module             = 7;    // 调用的api模块
+  string    data               = 8;    // 调用的api参数,json表示
+  int32     back               = 9;    // 消息是否需要返回,1返回，0不返回
+}
+
+message BroadcastMsg {
+  string    msg_type           = 1;    // 消息类型
+  string    source_id          = 2;    // 发送端id
+  string    source_module      = 3;    // 发送端模块名
+  string    timestamp          = 4;    // 时间戳
+  string    id                 = 5;    // 消息id唯一标识
+  string    api                = 6;    // 广播触发的api名称
+  string    data               = 7;    // 广播调用的api参数,json表示
+}
+
+message ResponseMsg {
+  string    msg_type           = 1;    // 消息类型
+  string    source_id          = 2;    // 发送端id
+  string    source_module      = 3;    // 发送端模块名
+  string    timestamp          = 4;    // 时间戳
+  string    id                 = 5;    // 消息id唯一标识
+  int32     code               = 6;    // 调用的api成功失败的结果，1成功，0失败
+  string    data               = 7;    // 调用的api返回值,json表示
+  int32     status             = 8;    // 服务处理状态
+  string    res_type           = 9;    // 响应消息的类型
+}
+
+message JsonMsg {
+  string    msg_type           = 1;    // 消息类型
+  string    source_id          = 2;    // 发送端id
+  string    source_module      = 3;    // 发送端模块名
+  string    timestamp          = 4;    // 时间戳
+  string    id                 = 5;    // 消息id唯一标识
+  int32     type               = 6;    // 业务消息类型
+  string    data               = 7;    // 业务JSON数据
+}
