@@ -1,5 +1,5 @@
 {
-  "name": "electron-api-manager",
+  "name": "electron-api-gateway",
   "version": "1.0.0",
   "description": "Decoupled IPC communication for Electron apps",
   "main": "src/index.js",
