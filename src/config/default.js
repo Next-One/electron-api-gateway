@@ -1,4 +1,4 @@
-import {uuid} from "../util";
+import {uuid} from "../util/common";
 
 export const ModuleConfig = {
   module: 'clientModule',
@@ -66,18 +66,4 @@ export const SerializerConfig = {
     TOKEN_LEN: 20 // 取决于hasToken的值
   },
   PROTO_TYPE: ProtoType
-}
-
-export const Status = {
-  CLIENT: {
-    OPEN: 'open',
-    CLOSE: 'close',
-    LOGINING: 'login'
-  }
-}
-
-
-export const OptionsConfig = {
-  clientTypes: ['RENDERER', 'SOCKET'],
-
 }

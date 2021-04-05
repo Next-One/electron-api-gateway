@@ -1,4 +1,4 @@
-import {ModuleConfig, OptionsConfig} from "../config/default";
+import {ModuleConfig} from "../config/default";
 
 export function composeKey(module, api) {
   return `${module}/${api}`
@@ -122,14 +122,17 @@ function validatorLogger(logger, o) {
 }
 
 
-function validatorSocketInfo({path, port, host}, o) {
+function validatorSocketInfo({path, port, host, supportSocket}, o) {
   // 默认优先使用path
   if (isString(path)) {
     o.path = process.platform === 'win32' ? `\\\\?\\pipe\\${path}` : path
+    o.supportSocket = true
   } else if (isNumber(port)) {
+    o.supportSocket = true
     o.port = port
     o.host = isString(host) ? host : 'localhost'
-  } else {
+  } else{
+    o.supportSocket = !!supportSocket
     path = ModuleConfig.path
     o.path = process.platform === 'win32' ? `\\\\?\\pipe\\${path}` : path
   }
@@ -144,7 +147,7 @@ function validatorAuthInfo(rest, o) {
     o.isWhiteListModule = true;
   } else {
     // socket client
-    o.clientType = OptionsConfig.clientTypes[1]
+    o.clientType = 'SOCKET'
     o.userName = rest.userName || ModuleConfig.userName
     o.password = rest.password || ModuleConfig.password
     o.isWhiteListModule = rest.isWhiteListModule === true;
@@ -164,7 +167,7 @@ export function validatorOptions(options) {
   if (process.type === 'renderer') {
     // renderer client
     // 如果是渲染进程客户端，验证到此结束直接返回
-    o.clientType = OptionsConfig.clientTypes[0]
+    o.clientType = 'RENDERER'
     return o
   }
   validatorSocketInfo(rest, o)

@@ -8,7 +8,7 @@ import SocketApiServer from "./SocketApiServer";
 class ApiGateway {
   constructor(options = {}) {
     this.options = validatorOptions(options)
-    this.module = this.options.serverModule
+    this.module = this.options.module
     this.moduleId = this.options.moduleId
     this.logger = this.options.logger
     this.apiManager = new Map() // 'module/api' => ApiInfo

@@ -3,8 +3,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
-    ApiMain: './src/ApiServer/ApiGateway.js',
-    ApiRenderer: './src/ApiClient/ApiClient.js'
+    index: './src/index.js'
   },
   output: {
     filename: '[name].js',

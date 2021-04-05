@@ -1,4 +1,4 @@
-import {ModuleConfig, MsgType, OptionsConfig} from "../config/default";
+import {MsgType} from "../config/default";
 import ApiInfo from "../Api/ApiInfo";
 import {
   isFunction,
@@ -40,7 +40,7 @@ class ApiClient {
   }
 
   start() {
-    if (this.clientType === OptionsConfig.clientTypes[1]) {
+    if (this.clientType === 'SOCKET') {
       import('./SocketApiClient').then(this.initClient.bind(this))
     } else {
       import('./RendererApiClient').then(this.initClient.bind(this))
