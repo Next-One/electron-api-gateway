@@ -18,7 +18,10 @@ function createWindow({filePath, x, y}) {
 }
 
 app.whenReady().then(() => {
-  global.apiMain = require('../dist/ApiMain').default()
+  const moduleContent = require('../dist')
+  console.log('createApi', moduleContent)
+
+  global.apiMain = moduleContent.createApiServer({module: 'main'})
   global.apiMain.register('double', function (num) {
     return num * 2
   })
@@ -42,10 +45,10 @@ app.whenReady().then(() => {
       .catch(console.error)
   }, 1000)
   createWindow({filePath: './render2/index.html', x: 100, y: 300})
-/*  setTimeout(() => {
-    createWindow({filePath: './render2/index.html', x: 550, y: 50})
+  setTimeout(() => {
+    // createWindow({filePath: './render2/index.html', x: 550, y: 50})
     createWindow({filePath: './render1/index.html', x: 200, y: 300})
-  }, 1000)*/
+  }, 1000)
 })
 
 app.on('window-all-closed', () => {

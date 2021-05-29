@@ -1,8 +1,6 @@
-/*
-module.exports = require(process.type === 'browser'
+/*module.exports = require(process.type === 'browser'
   ? './ApiServer/ApiGateway'
-  : './ApiClient/ApiClient')
-*/
+  : './ApiClient/ApiClient')*/
 
 import createApiServer from './ApiServer/ApiGateway'
 import createApiClient from './ApiClient/ApiClient'

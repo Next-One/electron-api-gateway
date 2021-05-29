@@ -1,4 +1,4 @@
-import {CallType, ModuleConfig, MsgType} from "../config/default";
+import {CallType, MsgType} from "../config/default";
 import {assert, composeKey, decomposeKey, isFunction, isPromise, uuid, validatorOptions} from "../util/common";
 import ApiInfo from "../Api/ApiInfo";
 import MainApiServer from "./MainApiServer";

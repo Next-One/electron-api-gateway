@@ -1,6 +1,6 @@
-const ApiRenderer = require('../../dist/ApiRenderer').default
+const createApiClient = require('../../dist').createApiClient
 
-window.apiManager = new ApiRenderer({module: 'render2'})
+window.apiManager = createApiClient({module: 'render2'})
 
 const el = {
   add: document.querySelector('#add'),
@@ -38,13 +38,13 @@ el.set.addEventListener('click', () => {
 })
 
 el.destroyAdd1.addEventListener('click', () => {
-  window.apiManager.destroy('render1', 'add')
+  window.apiManager.destroy('add')
     .then(console.log)
     .catch(console.error)
 })
 
 el.destroyAdd2.addEventListener('click', () => {
-  window.apiManager.destroy('render2', 'add')
+  window.apiManager.destroy('add')
     .then(console.log)
     .catch(console.error)
 })

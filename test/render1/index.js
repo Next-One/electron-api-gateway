@@ -1,6 +1,6 @@
-const ApiRenderer = require('../../dist/ApiRenderer').default
+const createApiClient = require('../../dist').createApiClient
 
-window.apiManager = new ApiRenderer({module: 'render1'})
+window.apiManager = createApiClient({module: 'render1'})
 
 const el = {
   add: document.querySelector('#add'),
@@ -38,7 +38,7 @@ el.set.addEventListener('click', () => {
 })
 
 el.double.addEventListener('click', () => {
-  window.apiManager.request('apiServer', 'double', el.num3.value)
+  window.apiManager.request('main', 'double', el.num3.value)
     .then((value) => {
       el.num3.value = value
     }).catch(console.error)
@@ -61,7 +61,7 @@ el.three.addEventListener('click', () => {
 })
 
 el.four.addEventListener('click', () => {
-  window.apiManager.request('apiServer', 'four', el.num6.value)
+  window.apiManager.request('main', 'four', el.num6.value)
     .then((value) => {
       el.num6.value = value
     }).catch(console.error)
